@@ -19,26 +19,44 @@ public class CreateMessageActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_message);
+
         //TODO: assign findViewById values to all instance variables
         messageView = (EditText)findViewById(R.id.message);
+        buttonToApp = (Button)findViewById(R.id.sendImplicit);
+        buttonToActivity = (Button)findViewById(R.id.sendExplicit);
 
-        
         //TODO: Add a setOnClickListener to each Button
+        buttonToActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendMessageToActivity();
+            }
+        });
 
-
+        buttonToApp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendMessageToApp();
+            }
+        });
     }
 
     //Call sendMessageToActivity when the "to Activity" button is clicked
     public void sendMessageToActivity(){
         //TODO: Use an explicit Intent to invoke the ReceiveMessageActivity with the message
+        Intent intent = new Intent(this, ReceiveMessageActivity.class);
+        intent.putExtra("message", getTextFromEditView());
+        startActivity(intent);
+    }
 
+    private String getTextFromEditView(){
+        return messageView.getText().toString();
     }
 
     //Call sendMessageToApp() when the "to App" button is clicked
     public void sendMessageToApp() {
-        String messageText = messageView.getText().toString();
         Intent intent = new Intent(Intent.ACTION_SEND); intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_TEXT, messageText);
+        intent.putExtra(Intent.EXTRA_TEXT, getTextFromEditView());
         String chooserTitle = getString(R.string.chooser);
         Intent chosenIntent = Intent.createChooser(intent, chooserTitle);
         startActivity(chosenIntent);
