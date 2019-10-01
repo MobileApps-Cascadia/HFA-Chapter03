@@ -44,7 +44,8 @@ public class CreateMessageActivity extends Activity {
     //Call sendMessageToActivity when the "to Activity" button is clicked
     public void sendMessageToActivity(){
         //TODO: Use an explicit Intent to invoke the ReceiveMessageActivity with the message
-        Intent intent = new Intent(this, ReceiveMessageActivity.class);
+        Intent intent = new Intent(this, ReviewMessageActivity.class);
+        intent.setType("text/plain");
         intent.putExtra("message", getTextFromEditView());
         startActivity(intent);
     }
@@ -55,7 +56,8 @@ public class CreateMessageActivity extends Activity {
 
     //Call sendMessageToApp() when the "to App" button is clicked
     public void sendMessageToApp() {
-        Intent intent = new Intent(Intent.ACTION_SEND); intent.setType("text/plain");
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_TEXT, getTextFromEditView());
         String chooserTitle = getString(R.string.chooser);
         Intent chosenIntent = Intent.createChooser(intent, chooserTitle);
