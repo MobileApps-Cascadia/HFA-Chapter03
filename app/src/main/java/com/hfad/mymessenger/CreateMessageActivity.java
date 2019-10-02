@@ -50,7 +50,7 @@ public class CreateMessageActivity extends Activity {
         //TODO: Use an explicit Intent to invoke the ReceiveMessageActivity with the message
         String messageExplicit = messageView.getText().toString();
         Intent explicit = new Intent(this, ReceiveMessageActivity.class);
-        explicit.putExtra(Intent.EXTRA_TEXT, messageExplicit);
+        explicit.putExtra(ReceiveMessageActivity.EXTRA_MESSAGE, messageView.getText().toString());
         explicit.putExtra("Urgent", true);
         startActivity(explicit);
     }
