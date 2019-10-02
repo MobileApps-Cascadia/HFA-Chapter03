@@ -21,9 +21,24 @@ public class CreateMessageActivity extends Activity {
         setContentView(R.layout.activity_create_message);
         //TODO: assign findViewById values to all instance variables
         messageView = (EditText)findViewById(R.id.message);
+        buttonToApp = (Button) findViewById(R.id.sendImplicit);
+        buttonToActivity = (Button) findViewById(R.id.sendExplicit);
 
         
         //TODO: Add a setOnClickListener to each Button
+        buttonToApp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendMessageToApp();
+            }
+        });
+
+        buttonToActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendMessageToActivity();
+            }
+        });
 
 
     }
@@ -31,7 +46,9 @@ public class CreateMessageActivity extends Activity {
     //Call sendMessageToActivity when the "to Activity" button is clicked
     public void sendMessageToActivity(){
         //TODO: Use an explicit Intent to invoke the ReceiveMessageActivity with the message
-
+        Intent ReceiveMessageActivityboi = new Intent(getApplicationContext(),ReceiveMessageActivity.class);
+        ReceiveMessageActivityboi.putExtra("message",messageView.getText().toString());
+        startActivity(ReceiveMessageActivityboi);
     }
 
     //Call sendMessageToApp() when the "to App" button is clicked
