@@ -7,8 +7,11 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 public class ReceiveMessageActivity extends Activity {
-    public static final String EXTRA_MESSAGE = "message";
-    public static final String EXTRA_URGENT = "urgent";
+
+    private static final String EXTRA_MESSAGE = "message";
+    private static final String EXTRA_URGENT = "urgent";
+
+    private TextView messageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +21,7 @@ public class ReceiveMessageActivity extends Activity {
         String messageText = intent.getStringExtra(EXTRA_MESSAGE);
         Boolean isUrgent = intent.getBooleanExtra(EXTRA_URGENT, false);
 
-        TextView messageView = (TextView)findViewById(R.id.message);
+        messageView = (TextView)findViewById(R.id.message);
 
         if(isUrgent){
             messageView.setTextColor(Color.RED);

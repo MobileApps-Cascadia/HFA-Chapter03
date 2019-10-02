@@ -13,12 +13,16 @@ public class ReviewMessageActivity extends Activity {
     private static final String EXTRA_MESSAGE = "message";
     private static final String EXTRA_URGENT = "urgent";
 
+    private Button sendButton;
+    private TextView review;
+    private CheckBox isUrgent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_review_message);
 
-        Button sendButton = (Button)findViewById(R.id.sendMessage);
+        sendButton = (Button)findViewById(R.id.sendMessage);
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -26,23 +30,18 @@ public class ReviewMessageActivity extends Activity {
             }
         });
 
-        getReviewTextView().setText(getIntent().getStringExtra(EXTRA_MESSAGE));
-    }
+        review = (TextView)findViewById(R.id.review);
+        isUrgent = (CheckBox)findViewById(R.id.urgent);
 
-    private TextView getReviewTextView(){
-        return (TextView)findViewById(R.id.review);
-    }
-
-    private CheckBox getCheckBoxForUrgency(){
-        return (CheckBox)findViewById(R.id.urgent);
+        review.setText(getIntent().getStringExtra(EXTRA_MESSAGE));
     }
 
     private void onSendClick(){
-        Intent intent = new Intent(this, ReceiveMessageActivity.class);
-
-        intent.setType("text/plain");
-        intent.putExtra( EXTRA_MESSAGE, getReviewTextView().getText().toString());
-        intent.putExtra( EXTRA_URGENT, getCheckBoxForUrgency().isChecked());
+        Intent intent =
+                new Intent(this, ReceiveMessageActivity.class)
+                        .setType("text/plain")
+                        .putExtra( EXTRA_MESSAGE, review.getText().toString())
+                        .putExtra( EXTRA_URGENT, isUrgent.isChecked());
 
         startActivity(intent);
     }

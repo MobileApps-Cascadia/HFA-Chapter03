@@ -44,9 +44,10 @@ public class CreateMessageActivity extends Activity {
     //Call sendMessageToActivity when the "to Activity" button is clicked
     public void sendMessageToActivity(){
         //TODO: Use an explicit Intent to invoke the ReceiveMessageActivity with the message
-        Intent intent = new Intent(this, ReviewMessageActivity.class);
-        intent.setType("text/plain");
-        intent.putExtra("message", getTextFromEditView());
+        Intent intent = new Intent(this, ReviewMessageActivity.class)
+                .setType("text/plain")
+                .putExtra("message", getTextFromEditView());
+
         startActivity(intent);
     }
 
