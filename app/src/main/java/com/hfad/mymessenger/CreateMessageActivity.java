@@ -38,7 +38,7 @@ public class CreateMessageActivity extends Activity {
         });
     }
 
-//test test test test test test test god why is this not working
+//It worked! Author finally changed
 
     //Call sendMessageToActivity when the "to Activity" button is clicked
     public void sendMessageToActivity(){
