@@ -38,7 +38,7 @@ public class CreateMessageActivity extends Activity {
         });
     }
 
-//It worked! Author finally changed
+//It worked! Author finally changed!
 
     //Call sendMessageToActivity when the "to Activity" button is clicked
     public void sendMessageToActivity(){
