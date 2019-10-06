@@ -20,13 +20,24 @@ public class CreateMessageActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_message);
         //TODO: assign findViewById values to all instance variables
-        messageView = (EditText)findViewById(R.id.message);
+        buttonToApp = (Button) findViewById(R.id.sendExplicit);
+        buttonToActivity = (Button) findViewById(R.id.sendImplicit);
+        messageView = (EditText) findViewById(R.id.message);
 
-        
+
         //TODO: Add a setOnClickListener to each Button
+        buttonToApp.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            }
+        });
 
-
+        buttonToActivity.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            }
+        });
     }
+
+
 
     //Call sendMessageToActivity when the "to Activity" button is clicked
     public void sendMessageToActivity(){
