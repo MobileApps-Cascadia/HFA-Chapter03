@@ -28,6 +28,7 @@ public class CreateMessageActivity extends Activity {
         //TODO: Add a setOnClickListener to each Button
         buttonToApp.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                sendMessageToApp();
             }
         });
 
@@ -38,14 +39,14 @@ public class CreateMessageActivity extends Activity {
         });
     }
 
-//It worked? Author finally changed??
+
 
     //Call sendMessageToActivity when the "to Activity" button is clicked
     public void sendMessageToActivity(){
         //TODO: Use an explicit Intent to invoke the ReceiveMessageActivity with the message
-        Intent Activity2Intent = new Intent(getApplicationContext(), CreateMessageActivity.class);
-        startActivity(Activity2Intent);
-        Activity2Intent.getStringExtra("message");
+        Intent intent = new Intent(this, ReceiveMessageActivity.class);
+        intent.putExtra("message", true);
+        startActivity(intent);
     }
 
     //Call sendMessageToApp() when the "to App" button is clicked
