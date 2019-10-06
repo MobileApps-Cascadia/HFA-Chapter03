@@ -33,6 +33,7 @@ public class CreateMessageActivity extends Activity {
 
         buttonToActivity.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                sendMessageToActivity();
             }
         });
     }
@@ -42,7 +43,9 @@ public class CreateMessageActivity extends Activity {
     //Call sendMessageToActivity when the "to Activity" button is clicked
     public void sendMessageToActivity(){
         //TODO: Use an explicit Intent to invoke the ReceiveMessageActivity with the message
-
+        Intent Activity2Intent = new Intent(getApplicationContext(), CreateMessageActivity.class);
+        startActivity(Activity2Intent);
+        Activity2Intent.getStringExtra("message");
     }
 
     //Call sendMessageToApp() when the "to App" button is clicked
