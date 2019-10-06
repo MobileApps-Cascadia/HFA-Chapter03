@@ -38,7 +38,7 @@ public class CreateMessageActivity extends Activity {
         });
     }
 
-//test test test test test
+//test test test test test test
 
     //Call sendMessageToActivity when the "to Activity" button is clicked
     public void sendMessageToActivity(){
