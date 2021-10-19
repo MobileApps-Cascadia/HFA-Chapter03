@@ -11,16 +11,18 @@ public class CreateMessageActivity extends Activity {
 
     //Declare instance variables for EditText and two Button Views
     EditText messageView;
-    Button buttonToApp;
-    Button buttonToActivity;
+    Button buttonSendToApp;
+    Button buttonSendToActivity;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_message);
-        //TODO: assign findViewById values to all instance variables
-        messageView = (EditText)findViewById(R.id.message);
+        //TODO: assign findViewById values to all instance variables for all widgets
+        messageView = findViewById(R.id.message);
+        //buttonSendToApp = ...
+        //buttonSendToActivity = ...
 
         
         //TODO: Add a setOnClickListener to each Button
