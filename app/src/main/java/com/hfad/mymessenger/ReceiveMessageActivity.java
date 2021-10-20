@@ -6,14 +6,13 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 public class ReceiveMessageActivity extends Activity {
-    public static final String MESSAGE = "MESSAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_receive_message);
         Intent intent = getIntent();
-        String messageText = intent.getStringExtra(MESSAGE);
+        String messageText = intent.getStringExtra(CreateMessageActivity.MESSAGE);
         TextView messageView = (TextView)findViewById(R.id.message);
         messageView.setText(messageText);
     }
