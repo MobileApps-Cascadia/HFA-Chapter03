@@ -8,10 +8,11 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class CreateMessageActivity extends Activity {
+    public static final String MESSAGE = "MESSAGE";
 
     //Declare instance variables for EditText and two Button Views
     EditText messageView;
-    Button buttonSendToApp;
+    Button buttonSendToOtherApp;
     Button buttonSendToActivity;
 
 
@@ -32,12 +33,12 @@ public class CreateMessageActivity extends Activity {
 
     //Call sendMessageToActivity when the "to Activity" button is clicked
     public void sendMessageToActivity(){
-        //TODO: Use an explicit Intent to invoke the ReceiveMessageActivity with the message
+        //TODO: Create an explicit Intent for ReceiveMessageActivity; add the TextView message and start the new Activity
 
     }
 
-    //Call sendMessageToApp() when the "to App" button is clicked
-    public void sendMessageToApp() {
+    //Creates an IMPLICIT intent, adds the textView's message as a String, and sends it to a "Chooser" window for the user to pick
+    public void sendMessageToOtherApp() {
         String messageText = messageView.getText().toString();
         Intent intent = new Intent(Intent.ACTION_SEND); intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_TEXT, messageText);
