@@ -12,8 +12,8 @@ public class ReceiveMessageActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_receive_message);
         Intent intent = getIntent();
-        String messageText = intent.getStringExtra(CreateMessageActivity.MESSAGE);
-        TextView messageView = (TextView)findViewById(R.id.message);
+        String messageText = intent.getStringExtra(CreateMessageActivity.MESSAGE) + intent.getBooleanExtra("urgent", false);
+        TextView messageView = (TextView) findViewById(R.id.message);
         messageView.setText(messageText);
     }
 }
