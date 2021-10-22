@@ -28,13 +28,38 @@ public class CreateMessageActivity extends Activity {
         
         //TODO: Add a setOnClickListener to each Button
 
+        buttonSendToApp.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                sendMessageToOtherApp();
+
+            }
+        });
+
+        buttonSendToActivity.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                sendMessageToActivity();
+
+            }
+        });
+
 
     }
 
     //Call sendMessageToActivity when the "to Activity" button is clicked
     public void sendMessageToActivity(){
         //TODO: Create an explicit Intent for ReceiveMessageActivity; add the TextView message and start the new Activity
-
+        //String messageText = messageView.getText().toString();
+        //Intent intent = new Intent(Intent.ACTIVITY_SEND); intent.setType("text/plain");
+        //intent.putExtra(Intent.EXTRA_TEXT, messageText);
+        //String chooserTitle = getString(R.string.chooser);
+        //Intent chosenIntent = Intent.createChooser(intent, chooserTitle);
+        //startActivity(chosenIntent);
     }
 
     //Creates an IMPLICIT intent, adds the textView's message as a String, and sends it to a "Chooser" window for the user to pick
