@@ -13,7 +13,8 @@ public class ReceiveMessageActivity extends Activity {
         setContentView(R.layout.activity_receive_message);
         Intent intent = getIntent();
         String messageText = intent.getStringExtra(CreateMessageActivity.MESSAGE);
+        Boolean messageUrgent = intent.getBooleanExtra("Urgent", false);
         TextView messageView = (TextView)findViewById(R.id.message);
-        messageView.setText(messageText);
+            messageView.setText(messageText);
     }
 }

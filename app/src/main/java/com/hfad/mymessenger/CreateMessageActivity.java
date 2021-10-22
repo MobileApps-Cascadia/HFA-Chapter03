@@ -48,6 +48,7 @@ public class CreateMessageActivity extends Activity {
         String messageText = messageView.getText().toString();
         Intent ReceiveMessageActivityIntent = new Intent(getApplicationContext(), ReceiveMessageActivity.class);
         ReceiveMessageActivityIntent.putExtra(MESSAGE, messageText);
+        ReceiveMessageActivityIntent.putExtra("Urgent",true);
         startActivity(ReceiveMessageActivityIntent);
 
     }
