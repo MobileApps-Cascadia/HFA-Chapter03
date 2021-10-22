@@ -15,7 +15,6 @@ public class CreateMessageActivity extends Activity {
     Button buttonSendToOtherApp;
     Button buttonSendToActivity;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,24 +22,41 @@ public class CreateMessageActivity extends Activity {
         //TODO: assign findViewById values to all instance variables for all widgets
         messageView = findViewById(R.id.message);
         //buttonSendToApp = ...
+        buttonSendToOtherApp = findViewById(R.id.sendImplicit);
         //buttonSendToActivity = ...
+        buttonSendToActivity = findViewById(R.id.sendExplicit);
 
-        
         //TODO: Add a setOnClickListener to each Button
+        buttonSendToOtherApp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendMessageToOtherApp();
+            }
+        });
 
-
+        buttonSendToActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendMessageToActivity();
+            }
+        });
     }
 
     //Call sendMessageToActivity when the "to Activity" button is clicked
-    public void sendMessageToActivity(){
+    public void sendMessageToActivity() {
         //TODO: Create an explicit Intent for ReceiveMessageActivity; add the TextView message and start the new Activity
+        String messageText = messageView.getText().toString();
+        Intent ReceiveMessageActivityIntent = new Intent(getApplicationContext(), ReceiveMessageActivity.class);
+        ReceiveMessageActivityIntent.putExtra(MESSAGE, messageText);
+        startActivity(ReceiveMessageActivityIntent);
 
     }
 
     //Creates an IMPLICIT intent, adds the textView's message as a String, and sends it to a "Chooser" window for the user to pick
     public void sendMessageToOtherApp() {
         String messageText = messageView.getText().toString();
-        Intent intent = new Intent(Intent.ACTION_SEND); intent.setType("text/plain");
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_TEXT, messageText);
         String chooserTitle = getString(R.string.chooser);
         Intent chosenIntent = Intent.createChooser(intent, chooserTitle);
