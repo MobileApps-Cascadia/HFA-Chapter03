@@ -15,7 +15,7 @@
         android:background="@color/colorAccent"
         android:fontFamily="cursive"
         android:padding="20sp"
-        android:rotation="-13"
+        android:rotation="-18"
         android:shadowRadius="20"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="36sp"
