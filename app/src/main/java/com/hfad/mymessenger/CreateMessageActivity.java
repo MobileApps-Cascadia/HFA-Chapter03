@@ -54,12 +54,11 @@ public class CreateMessageActivity extends Activity {
     //Call sendMessageToActivity when the "to Activity" button is clicked
     public void sendMessageToActivity(){
         //TODO: Create an explicit Intent for ReceiveMessageActivity; add the TextView message and start the new Activity
-        //String messageText = messageView.getText().toString();
-        //Intent intent = new Intent(Intent.ACTIVITY_SEND); intent.setType("text/plain");
-        //intent.putExtra(Intent.EXTRA_TEXT, messageText);
-        //String chooserTitle = getString(R.string.chooser);
-        //Intent chosenIntent = Intent.createChooser(intent, chooserTitle);
-        //startActivity(chosenIntent);
+        String messageText = messageView.getText().toString();
+        Intent ReceiveMessageActivity = new Intent(getApplicationContext(),ReceiveMessageActivity.class);
+        ReceiveMessageActivity.putExtra(MESSAGE, messageText);
+        ReceiveMessageActivity.putExtra("Urgent", true);
+        startActivity(ReceiveMessageActivity);
     }
 
     //Creates an IMPLICIT intent, adds the textView's message as a String, and sends it to a "Chooser" window for the user to pick
