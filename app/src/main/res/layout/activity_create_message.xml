@@ -22,6 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="@string/sendExplicit"
+        android:onClick="sendMessageToActivity"
         />
     <Button
         android:id="@+id/sendImplicit"
@@ -29,5 +30,5 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="@string/sendImplicit"
-        />
+        android:onClick="sendMessageToOtherApp" />
 </LinearLayout>
